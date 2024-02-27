@@ -284,7 +284,7 @@ public class Main {
 				quickSort(menu, 0, menu.length-1);
 				display(menu);
 			}
-			if(option == 12) {
+			if(option == 12) { // FOR TESTING
 				fillSequentially(menu);
 				shuffle(menu);
 				display(menu);
