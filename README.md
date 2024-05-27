@@ -1,10 +1,10 @@
 # Algorithms demonstrated:
 
-Search:
+**Search:**
 - Linear Search
 - Binary Search
 
-Sorting:
+**Sorting:**
 - Select sort
 - Insertion sort
 - Radix sort
