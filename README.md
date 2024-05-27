@@ -1,4 +1,4 @@
-Algorithms demonstrated:
+# Algorithms demonstrated:
 
 Search:
 - Linear Search
