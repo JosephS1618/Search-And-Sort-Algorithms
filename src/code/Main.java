@@ -98,12 +98,14 @@ public class Main {
 		return found;
 	}
 	
-	public static void selectSort(int[]menu) { //8. selection sort FIX
+	public static void selectSort(int[]menu) { //8. selection sort
 		int min, max, minpos = 0, maxpos = 0, swapmin = 0, swapmax = 0;
 		
 		for(int x = 0, z = menu.length-1; x < z; x++, z--) {
 			min = menu[x];
 			max = menu[x];
+			minpos = x;
+			maxpos = x;
 			
 			for(int y = x; y <= z; y++) {
 				if(menu[y] > max) {
@@ -118,41 +120,21 @@ public class Main {
 			swap(menu, minpos, x);  //swaps smallest value
 			
 			if(menu[minpos] == max) //exception
-				swap(menu, minpos, z+1);
-			 else
+				swap(menu, minpos, z);
+			else
 				swap(menu, maxpos, z); // swaps largest values
 			
 		}
 	}
 	
-	
-	public static void insertionSort(int[] menu) { //9. insertion sort FIX
-		for(int i = 1; i < menu.length; i++) {
-			int count = i-1;
-			int start = count;
-			int finish;
-			boolean done = false;
-			
-			while(menu[i] < menu[count] && count != 0) {
-				count--;
-				done = true;
-			}
-				
-			if(done == true) {
-				finish = count+1;
-				swapInsertion(menu, i, start, finish);
+	public static void insertionSort(int[] menu) { //9. insertion sort
+		for (int i = 1; i < menu.length; i++) {
+			int x = i; 
+			while (x > 0 && menu[x-1] > menu[x]) {
+				swap(menu, x-1, x);
+				x--;
 			}
 		}
-	}
-	
-	public static void swapInsertion(int[] menu, int i, int start, int finish) { //swap algorithm for insertion sort 
-		int swap = menu[i];
-		
-		for(int x = start; x >= finish; x--) {
-			menu[x+1] = menu[x];
-		}
-		
-		menu[finish] = swap;
 	}
 	
 	public static int[] rSort(int[] menu) { // 10. radix sort. best for large numbers
@@ -284,7 +266,7 @@ public class Main {
 				quickSort(menu, 0, menu.length-1);
 				display(menu);
 			}
-			if(option == 12) { // FOR TESTING
+			if(option == 12) { // For testing
 				fillSequentially(menu);
 				shuffle(menu);
 				display(menu);
